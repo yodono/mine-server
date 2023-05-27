@@ -6,7 +6,7 @@
 
 ## Como rodar
 - Certifique-se de que o server está configurado conforme sua preferência em `./server`
-- Construa a imagem docker `docker run build -t mosquitinhos-server .`
+- Construa a imagem docker `docker build -t mosquitinhos-server .`
 - Rode a imagem passando a porta do seu servidor (geralmente `25565`) e o nome da tag
   - O parametro -d roda em modo _detached_. Rode `docker exec -it mosquitinhos-server /bin/bash` interagir no ambiente da imagem.
 
@@ -27,8 +27,8 @@ Isso pode ser feito de várias formas
 
 ### Rodando com Ngrok
 - Tenha o servidor rodando no passo anterior
-- Rode a imagem remota do NGrok, passando seu token de autenticação
+- Rode a imagem remota do Ngrok, passando seu token de autenticação
 ```bash
-docker run --net=host -it --region=sa -e NGROK_AUTHTOKEN=<seu-token> ngrok/ngrok:latest tcp 25565
+docker run --net=host -it -e NGROK_AUTHTOKEN=<seu-token> ngrok/ngrok:latest tcp 25565 --regions=sa
 ```
 
